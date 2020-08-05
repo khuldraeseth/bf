@@ -12,7 +12,8 @@ import Control.Monad.State (MonadState(..), StateT(..), evalStateT, modify)
 import Text.Parsec (parse)
 
 import AST (BF(..), bf)
-import Config (Config(..), IOMode(..), defaultConfig)
+import Config (Config(..), IOMode(..))
+
 import qualified Tape as T
 
 type Tape = T.Tape Int
@@ -73,7 +74,7 @@ exec i = case i of
 execAll :: [BF] -> VM ()
 execAll = mapM_ exec
 
-brainfuck :: String -> IO ()
-brainfuck s = do
+brainfuck :: Config -> String -> IO ()
+brainfuck cfg s = do
     let Right ast = parse bf "" s
-    flip evalStateT blank $ flip runReaderT defaultConfig $ runVM $ execAll ast
+    flip evalStateT blank $ flip runReaderT cfg $ runVM $ execAll ast

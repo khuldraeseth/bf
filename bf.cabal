@@ -4,11 +4,13 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: bd5a4e3e52919eecb6e5a9638e9eda6e83d427a921c375d81a28620bb392a560
+-- hash: 29e4b95b939ad0d8b9c289186698fc521fa99dcffb43d96fbf57e0de514ad3b6
 
 name:           bf
 version:        0.1.0.0
+synopsis:       An industrial-grade brainfuck interpreter written in Haskell
 description:    Please see the README on GitHub at <https://github.com/khuldraeseth/bf#readme>
+category:       Compilers/Interpreters
 homepage:       https://github.com/khuldraeseth/bf#readme
 bug-reports:    https://github.com/khuldraeseth/bf/issues
 author:         Khuldraeseth
@@ -30,6 +32,7 @@ library
       AST
       BF
       Config
+      Options
       Stream
       Tape
   other-modules:
